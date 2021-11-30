@@ -57,6 +57,16 @@ class Lava
     }
 
     /**
+     * @param $invoiceID
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function invoiceInfo($invoiceID)
+    {
+        return $this->request(['id' => $invoiceID], '/invoice/info', 'post');
+    }
+
+    /**
      * @param WithdrawCreateData $data
      * @return mixed
      * @throws GuzzleException
@@ -74,16 +84,6 @@ class Lava
     public function withdrawInfo($id)
     {
         return $this->request(['id'=>$id], '/withdraw/info', 'post');
-    }
-
-    /**
-     * @param $invoiceID
-     * @return mixed
-     * @throws GuzzleException
-     */
-    public function invoiceInfo($invoiceID)
-    {
-        return $this->request(['id' => $invoiceID], '/invoice/info', 'post');
     }
 
     /**
