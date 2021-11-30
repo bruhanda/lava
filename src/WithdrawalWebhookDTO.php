@@ -8,26 +8,26 @@ class WithdrawalWebhookDTO extends DTO
     /**
      * @var int
      */
-    private $type;
+    public $type;
 
     /**
      * @var string
      */
-    private $payoff_id;
+    public $payoff_id;
 
     /**
      * @var string
      */
-    private $status;
+    public $status;
 
     /**
      * @var string
      */
-    private $amount;
+    public $amount;
 
     /**
      * @var null
      */
-    private $order_id = null;
+    public $order_id = null;
 
 }

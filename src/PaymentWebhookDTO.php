@@ -7,36 +7,36 @@ class PaymentWebhookDTO extends DTO
     /**
      * @var int
      */
-    private $type;
+    public $type;
 
     /**
      * @var string
      */
-    private $invoice_id;
+    public $invoice_id;
 
     /**
      * @var string
      */
-    private $order_id;
+    public $order_id;
 
     /**
      * @var string
      */
-    private $status;
+    public $status;
 
     /**
      * @var int
      */
-    private $pay_time;
+    public $pay_time;
 
     /**
      * @var string
      */
-    private $amount;
+    public $amount;
 
     /**
      * @var string
      */
-    private $custom_fields;
+    public $custom_fields;
 
 }
