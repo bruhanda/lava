@@ -7,51 +7,133 @@ class InvoiceDTO extends DTO
     /**
      * @var string
      */
-    private $id;
+    public $id;
 
     /**
      * @var string
      */
-    private $order_id;
+    public $order_id;
 
     /**
      * @var int
      */
-    private $expire;
+    public $expire;
 
     /**
      * @var string
      */
-    private $sum;
+    public $sum;
 
     /**
      * @var string
      */
-    private $comment;
+    public $comment;
 
     /**
      * @var string
      */
-    private $status;
+    public $status;
 
     /**
      * @var string
      */
-    private $success_url;
+    public $success_url;
 
     /**
      * @var string
      */
-    private $fail_url;
+    public $fail_url;
 
     /**
      * @var string
      */
-    private $hook_url;
+    public $hook_url;
 
     /**
      * @var string
      */
-    private $custom_fields;
+    public $custom_fields;
+
+    /**
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOrderId()
+    {
+        return $this->order_id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getExpire()
+    {
+        return $this->expire;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSum()
+    {
+        return $this->sum;
+    }
+
+    /**
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSuccessUrl()
+    {
+        return $this->success_url;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFailUrl()
+    {
+        return $this->fail_url;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHookUrl()
+    {
+        return $this->hook_url;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+
+
 
 }
