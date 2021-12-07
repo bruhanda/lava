@@ -124,10 +124,9 @@ class Lava
      */
     private function request($params, $uri, $method = 'get')
     {
-        $rowData = http_build_query($params);
         $options = [
             'verify' => false,
-            'query' => $rowData,
+            'multipart' => $params,
             'headers' => [
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
