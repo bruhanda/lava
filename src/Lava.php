@@ -122,7 +122,7 @@ class Lava
      * @return mixed
      * @throws GuzzleException
      */
-    private function request(array $params, $uri, string $method = 'get')
+    private function request($params, $uri, $method = 'get')
     {
         $rowData = http_build_query($params);
         $options = [
