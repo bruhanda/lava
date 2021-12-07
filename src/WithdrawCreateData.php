@@ -73,7 +73,7 @@ class WithdrawCreateData
     /**
      * @param string $order_id
      */
-    public function setOrderId(string $order_id): void
+    public function setOrderId(string $order_id)
     {
         $this->order_id = $order_id;
     }
@@ -81,7 +81,7 @@ class WithdrawCreateData
     /**
      * @param string $hook_ulr
      */
-    public function setHookUlr(string $hook_ulr): void
+    public function setHookUlr(string $hook_ulr)
     {
         $this->hook_ulr = $hook_ulr;
     }
@@ -89,7 +89,7 @@ class WithdrawCreateData
     /**
      * @param int $subtract
      */
-    public function setSubtract(int $subtract): void
+    public function setSubtract(int $subtract)
     {
         $this->subtract = $subtract;
     }
@@ -97,7 +97,7 @@ class WithdrawCreateData
     /**
      * @param string $comment
      */
-    public function setComment(string $comment): void
+    public function setComment(string $comment)
     {
         $this->comment = $comment;
     }

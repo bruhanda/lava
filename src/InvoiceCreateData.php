@@ -137,7 +137,7 @@ class InvoiceCreateData
         $this->comment = $comment;
     }
 
-    public function toArray():array
+    public function toArray()
     {
         return (array) $this;
     }
