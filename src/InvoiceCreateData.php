@@ -137,9 +137,12 @@ class InvoiceCreateData
         $this->comment = $comment;
     }
 
+    /**
+     * @return mixed
+     */
     public function toArray()
     {
-        return (array) $this;
+        return call_user_func('get_object_vars', $this);
     }
 
 }

@@ -126,10 +126,9 @@ class Lava
     {
         $options = [
             'verify' => false,
-            'multipart' => $params,
+            'form_params' => $params,
             'headers' => [
                 'Accept' => 'application/json',
-                'Content-Type' => 'application/json',
                 'Authorization' => $this->token
             ],
         ];
