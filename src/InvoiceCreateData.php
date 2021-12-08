@@ -51,7 +51,7 @@ class InvoiceCreateData
      *
      * @var int
      */
-    private $substract;
+    private $subtract;
 
     /**
      * @var string
@@ -114,11 +114,11 @@ class InvoiceCreateData
     }
 
     /**
-     * @param int $substract
+     * @param int $subtract
      */
-    public function setSubstract($substract)
+    public function setSubtract($subtract)
     {
-        $this->substract = $substract;
+        $this->subtract = $subtract;
     }
 
     /**
