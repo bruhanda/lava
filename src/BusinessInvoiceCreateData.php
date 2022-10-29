@@ -27,31 +27,7 @@ class BusinessInvoiceCreateData
     private $includeService;
 
     private $excludeService;
-
-    private $secretKey;
-
-    public function __construct($secretKey)
-    {
-        $this->secretKey=$secretKey;
-    }
-
-    private function signature($data){
-        ksort($data);
-        $signature= hash_hmac("sha256", json_encode($data), $this->secretKey);
-
-        return json_encode($data + ['signature' => $signature]);
-    }
-
-    private function checkSignature(){
-        $data =  json_decode(file_get_contents('php://input'), true);
-        ksort($data);
-
-        $signature = hash_hmac("sha256", json_encode($data), $this->secretKey);
-        $hookSignature = $_SERVER['HTTP_AUTHORIZATION'];
-
-        if($signature != $hookSignature)
-            return "Invalid signature";
-    }
+    
 
     /**
      * @param mixed $sum
