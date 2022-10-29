@@ -19,12 +19,22 @@ class BusinessLava
      */
     private $connectionTimeout = 10;
 
+    private $secretKey;
+
+    private $secretKey2;
+
+    private $shopID;
+
 
     /**
      * @param $token
      */
-    public function __construct()
+    public function __construct($shopID, $secretKey, $secretKey2)
     {
+        $this->secretKey=$secretKey;
+        $this->secretKey2=$secretKey2;
+        $this->shopID=$shopID;
+
         $this->httpClient = new Client([
             'base_uri' => $this->host,
             'timeout' => $this->connectionTimeout,
@@ -50,6 +60,37 @@ class BusinessLava
         return $this->request($data->toArray(), '/business/invoice/create', 'post');
     }
 
+    public function invoiceInfo($orderID, $invoiceID)
+    {
+        $data=[
+            'shopId'=>$this->shopID,
+            'orderId'=>$orderID,
+            'invoiceId'=>$invoiceID
+        ];
+        $data=$this->signature($data);
+
+        return $this->request($data, '/business/invoice/status', 'post');
+    }
+
+    private function signature($data){
+        ksort($data);
+        $signature= hash_hmac("sha256", json_encode($data), $this->secretKey);
+
+        return json_encode($data + ['signature' => $signature]);
+    }
+
+    private function checkSignature(){
+        $data =  json_decode(file_get_contents('php://input'), true);
+        ksort($data);
+
+        $signature = hash_hmac("sha256", json_encode($data), $this->secretKey);
+        $hookSignature = $_SERVER['HTTP_AUTHORIZATION'];
+
+        if($signature != $hookSignature)
+            return "Invalid signature";
+    }
+
+
     /**
      * @param array $params
      * @param $uri
@@ -63,7 +104,7 @@ class BusinessLava
             'verify' => false,
             'form_params' => $params,
             //'json'=>$params,
-            'body'=>json_encode($params),
+            'body' => json_encode($params),
             'headers' => [
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json'
