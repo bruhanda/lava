@@ -31,9 +31,9 @@ class BusinessLava
      */
     public function __construct($shopID, $secretKey, $secretKey2)
     {
-        $this->secretKey=$secretKey;
-        $this->secretKey2=$secretKey2;
-        $this->shopID=$shopID;
+        $this->secretKey = $secretKey;
+        $this->secretKey2 = $secretKey2;
+        $this->shopID = $shopID;
 
         $this->httpClient = new Client([
             'base_uri' => $this->host,
@@ -57,37 +57,42 @@ class BusinessLava
      */
     public function businessInvoiceCreate(BusinessInvoiceCreateData $data)
     {
+        $data = $this->signature($data);
         return $this->request($data->toArray(), '/business/invoice/create', 'post');
     }
 
     public function invoiceInfo($orderID, $invoiceID)
     {
-        $data=[
-            'shopId'=>$this->shopID,
-            'orderId'=>$orderID,
-            'invoiceId'=>$invoiceID
+        $data = [
+            'shopId' => $this->shopID,
+            'orderId' => $orderID,
+            'invoiceId' => $invoiceID
         ];
-        $data=$this->signature($data);
+        $data = $this->signature($data);
 
         return $this->request($data, '/business/invoice/status', 'post');
     }
 
-    private function signature($data){
+    private function signature($data)
+    {
         ksort($data);
-        $signature= hash_hmac("sha256", json_encode($data), $this->secretKey);
+        $signature = hash_hmac("sha256", json_encode($data), $this->secretKey);
 
         return json_encode($data + ['signature' => $signature]);
     }
 
-    private function checkSignature(){
-        $data =  json_decode(file_get_contents('php://input'), true);
+    private function checkSignature()
+    {
+        $data = json_decode(file_get_contents('php://input'), true);
         ksort($data);
 
-        $signature = hash_hmac("sha256", json_encode($data), $this->secretKey);
+        $signature = hash_hmac("sha256", json_encode($data), $this->secretKey2);
         $hookSignature = $_SERVER['HTTP_AUTHORIZATION'];
 
-        if($signature != $hookSignature)
-            return "Invalid signature";
+        if ($signature === $hookSignature) {
+            return true;
+        }
+        throw new LavaException("Invalid signature");
     }
 
 
