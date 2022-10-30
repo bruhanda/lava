@@ -27,7 +27,7 @@ class BusinessInvoiceCreateData
     private $includeService;
 
     private $excludeService;
-    
+
 
     /**
      * @param mixed $sum
