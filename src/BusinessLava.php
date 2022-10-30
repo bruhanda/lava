@@ -73,12 +73,13 @@ class BusinessLava
         return $this->request($data, '/business/invoice/status', 'post');
     }
 
-    private function signature($data)
+    private function signature(BusinessInvoiceCreateData $obj)
     {
+        $data=$obj->toArray();
         ksort($data);
         $signature = hash_hmac("sha256", json_encode($data), $this->secretKey);
-        $data->setSignature($signature);
-        return json_encode($data);
+        $obj->setSignature($signature);
+        return $obj;
     }
 
     private function checkSignature()
