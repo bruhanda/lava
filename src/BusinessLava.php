@@ -77,8 +77,8 @@ class BusinessLava
     {
         ksort($data);
         $signature = hash_hmac("sha256", json_encode($data), $this->secretKey);
-
-        return json_encode($data + ['signature' => $signature]);
+        $data['signature']=$signature;
+        return json_encode($data);
     }
 
     private function checkSignature()
