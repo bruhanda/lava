@@ -108,7 +108,7 @@ class BusinessLava
     {
         $options = [
             'verify' => false,
-            'form_params' => $params,
+            'form_params' => json_encode($params),
             //'json'=>$params,
             'body' => json_encode($params),
             'headers' => [
