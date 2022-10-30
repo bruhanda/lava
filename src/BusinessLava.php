@@ -108,9 +108,9 @@ class BusinessLava
     {
         $options = [
             'verify' => false,
-            'form_params' => $params,
+            //'form_params' => $params,
            // 'json'=>$params,
-            //'body' => json_encode($params),
+            'body' => json_encode($params),
             'headers' => [
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json'
