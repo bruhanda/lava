@@ -32,7 +32,7 @@ class BusinessInvoiceCreateData
     /**
      * @param mixed $sum
      */
-    public function setSum($sum): void
+    public function setSum($sum)
     {
         $this->sum = $sum;
     }
@@ -40,7 +40,7 @@ class BusinessInvoiceCreateData
     /**
      * @param mixed $orderId
      */
-    public function setOrderId($orderId): void
+    public function setOrderId($orderId)
     {
         $this->orderId = $orderId;
     }
@@ -48,7 +48,7 @@ class BusinessInvoiceCreateData
     /**
      * @param mixed $signature
      */
-    public function setSignature($signature): void
+    public function setSignature($signature)
     {
         $this->signature = $signature;
     }
@@ -56,7 +56,7 @@ class BusinessInvoiceCreateData
     /**
      * @param mixed $shopId
      */
-    public function setShopId($shopId): void
+    public function setShopId($shopId)
     {
         $this->shopId = $shopId;
     }
@@ -64,7 +64,7 @@ class BusinessInvoiceCreateData
     /**
      * @param mixed $hookUrl
      */
-    public function setHookUrl($hookUrl): void
+    public function setHookUrl($hookUrl)
     {
         $this->hookUrl = $hookUrl;
     }
@@ -72,7 +72,7 @@ class BusinessInvoiceCreateData
     /**
      * @param mixed $failUrl
      */
-    public function setFailUrl($failUrl): void
+    public function setFailUrl($failUrl)
     {
         $this->failUrl = $failUrl;
     }
@@ -80,7 +80,7 @@ class BusinessInvoiceCreateData
     /**
      * @param mixed $successUrl
      */
-    public function setSuccessUrl($successUrl): void
+    public function setSuccessUrl($successUrl)
     {
         $this->successUrl = $successUrl;
     }
@@ -88,7 +88,7 @@ class BusinessInvoiceCreateData
     /**
      * @param mixed $expire
      */
-    public function setExpire($expire): void
+    public function setExpire($expire)
     {
         $this->expire = $expire;
     }
@@ -96,7 +96,7 @@ class BusinessInvoiceCreateData
     /**
      * @param mixed $customFields
      */
-    public function setCustomFields($customFields): void
+    public function setCustomFields($customFields)
     {
         $this->customFields = $customFields;
     }
@@ -104,7 +104,7 @@ class BusinessInvoiceCreateData
     /**
      * @param mixed $comment
      */
-    public function setComment($comment): void
+    public function setComment($comment)
     {
         $this->comment = $comment;
     }
@@ -112,7 +112,7 @@ class BusinessInvoiceCreateData
     /**
      * @param mixed $includeService
      */
-    public function setIncludeService($includeService): void
+    public function setIncludeService($includeService)
     {
         $this->includeService = $includeService;
     }
@@ -120,7 +120,7 @@ class BusinessInvoiceCreateData
     /**
      * @param mixed $excludeService
      */
-    public function setExcludeService($excludeService): void
+    public function setExcludeService($excludeService)
     {
         $this->excludeService = $excludeService;
     }

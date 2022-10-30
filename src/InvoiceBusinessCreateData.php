@@ -151,15 +151,4 @@ class InvoiceBusinessCreateData
     }
 
 
-    /**
-     * @return mixed
-     */
-    public function toArray()
-    {
-
-        $data= get_object_vars($this);
-        ksort($data);
-        $signature= hash_hmac("sha256", json_encode($data), $secretKey);
-    }
-
 }
