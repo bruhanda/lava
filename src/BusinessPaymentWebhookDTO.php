@@ -4,23 +4,23 @@ namespace Brukhanda\Lava;
 
 class BusinessPaymentWebhookDTO extends DTO
 {
-    private $invoice_id;
+    public $invoice_id;
 
-    private $status;
+    public $status;
 
-    private $pay_time;
+    public $pay_time;
 
-    private $amount;
+    public $amount;
 
-    private $order_id;
+    public $order_id;
 
-    private $pay_service;
+    public $pay_service;
 
-    private $payer_details;
+    public $payer_details;
 
-    private $custom_fields;
+    public $custom_fields;
 
-    private $credited;
+    public $credited;
 
     /**
      * @return mixed

@@ -9,51 +9,51 @@ class InvoiceBusinessDTO extends DTO
     /**
      * @var string
      */
-    private $sum;
+    public $sum;
     /**
      * @var string
      */
-    private $orderId;
+    public $orderId;
     /**
      * @var string
      */
-    private $signature;
+    public $signature;
     /**
      * @var string
      */
-    private $shopId;
+    public $shopId;
     /**
      * @var string
      */
-    private $hookUrl;
+    public $hookUrl;
     /**
      * @var string
      */
-    private $failUrl;
+    public $failUrl;
     /**
      * @var string
      */
-    private $successUrl;
+    public $successUrl;
     /**
      * @var int
      */
-    private $expire;
+    public $expire;
     /**
      * @var string
      */
-    private $customFields;
+    public $customFields;
     /**
      * @var string
      */
-    private $comment;
+    public $comment;
     /**
      * @var array
      */
-    private $includeService;
+    public $includeService;
     /**
      * @var array
      */
-    private $excludeService;
+    public $excludeService;
 
     /**
      * @return string
