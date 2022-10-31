@@ -126,7 +126,14 @@ class BusinessInvoiceCreateData
     }
 
     public function toArray(){
-        return get_object_vars($this);
+        $res= get_object_vars($this);
+        foreach ($res as $key => $val){
+            if($val===null){
+                unset($res[$key]);
+            }
+        }
+
+        return $res;
     }
 
 
