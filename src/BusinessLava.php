@@ -57,8 +57,8 @@ class BusinessLava
      */
     public function businessInvoiceCreate(BusinessInvoiceCreateData $data)
     {
-        $data = $this->signature($data);
-        return $this->request($data->toArray(), '/business/invoice/create', 'post');
+        $data = $this->signature($data->toArray());
+        return $this->request($data, '/business/invoice/create', 'post');
     }
 
     public function invoiceInfo($orderID, $invoiceID)
@@ -73,13 +73,13 @@ class BusinessLava
         return $this->request($data, '/business/invoice/status', 'post');
     }
 
-    private function signature(BusinessInvoiceCreateData $obj)
+    private function signature($data)
     {
-        $data=$obj->toArray();
+
         ksort($data);
         $signature = hash_hmac("sha256", json_encode($data), $this->secretKey);
-        $obj->setSignature($signature);
-        return $obj;
+        $data['signature'] = $signature;
+        return $data;
     }
 
     private function checkSignature()
@@ -109,7 +109,7 @@ class BusinessLava
         $options = [
             'verify' => false,
             //'form_params' => $params,
-           // 'json'=>$params,
+            // 'json'=>$params,
             'body' => json_encode($params),
             'headers' => [
                 'Accept' => 'application/json',
