@@ -73,6 +73,15 @@ class BusinessLava
         return $this->request($data, '/business/invoice/status', 'post');
     }
 
+    public function getBalance(){
+        $data = [
+            'shopId' => $this->shopID,
+        ];
+        $data = $this->signature($data);
+
+        return $this->request($data, '/business/shop/get-balance', 'post');
+    }
+
     private function signature($data)
     {
 
